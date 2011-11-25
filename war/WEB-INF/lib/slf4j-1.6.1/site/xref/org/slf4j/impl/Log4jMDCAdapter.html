@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+<title>Log4jMDCAdapter xref</title>
+<link type="text/css" rel="stylesheet" href="../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+
+<a name="1" href="#1">1</a>   <strong class="jxr_keyword">package</strong> org.slf4j.impl;
+<a name="2" href="#2">2</a>   
+<a name="3" href="#3">3</a>   <strong class="jxr_keyword">import</strong> java.util.HashMap;
+<a name="4" href="#4">4</a>   <strong class="jxr_keyword">import</strong> java.util.Iterator;
+<a name="5" href="#5">5</a>   <strong class="jxr_keyword">import</strong> java.util.Map;
+<a name="6" href="#6">6</a>   
+<a name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> org.slf4j.spi.MDCAdapter;
+<a name="8" href="#8">8</a>   
+<a name="9" href="#9">9</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Log4jMDCAdapter implements <a href="../../../org/slf4j/spi/MDCAdapter.html">MDCAdapter</a> {
+<a name="10" href="#10">10</a>  
+<a name="11" href="#11">11</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> clear() {
+<a name="12" href="#12">12</a>      Map map = org.apache.log4j.MDC.getContext();
+<a name="13" href="#13">13</a>      <strong class="jxr_keyword">if</strong> (map != <strong class="jxr_keyword">null</strong>) {
+<a name="14" href="#14">14</a>        map.clear();
+<a name="15" href="#15">15</a>      }
+<a name="16" href="#16">16</a>    }
+<a name="17" href="#17">17</a>  
+<a name="18" href="#18">18</a>    <strong class="jxr_keyword">public</strong> String get(String key) {
+<a name="19" href="#19">19</a>      <strong class="jxr_keyword">return</strong> (String) org.apache.log4j.MDC.get(key);
+<a name="20" href="#20">20</a>    }
+<a name="21" href="#21">21</a>  
+<a name="22" href="#22">22</a>    <em class="jxr_javadoccomment">/**</em>
+<a name="23" href="#23">23</a>  <em class="jxr_javadoccomment">   * Put a context value (the &lt;code&gt;val&lt;/code&gt; parameter) as identified with</em>
+<a name="24" href="#24">24</a>  <em class="jxr_javadoccomment">   * the &lt;code&gt;key&lt;/code&gt; parameter into the current thread's context map. The</em>
+<a name="25" href="#25">25</a>  <em class="jxr_javadoccomment">   * &lt;code&gt;key&lt;/code&gt; parameter cannot be null. Log4j does &lt;em&gt;not&lt;/em&gt; </em>
+<a name="26" href="#26">26</a>  <em class="jxr_javadoccomment">   * support null for the &lt;code&gt;val&lt;/code&gt; parameter.</em>
+<a name="27" href="#27">27</a>  <em class="jxr_javadoccomment">   * </em>
+<a name="28" href="#28">28</a>  <em class="jxr_javadoccomment">   * &lt;p&gt;</em>
+<a name="29" href="#29">29</a>  <em class="jxr_javadoccomment">   * This method delegates all work to log4j's MDC.</em>
+<a name="30" href="#30">30</a>  <em class="jxr_javadoccomment">   * </em>
+<a name="31" href="#31">31</a>  <em class="jxr_javadoccomment">   * @throws IllegalArgumentException</em>
+<a name="32" href="#32">32</a>  <em class="jxr_javadoccomment">   *           in case the "key" or &lt;b&gt;"val"&lt;/b&gt; parameter is null</em>
+<a name="33" href="#33">33</a>  <em class="jxr_javadoccomment">   */</em>
+<a name="34" href="#34">34</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> put(String key, String val) {
+<a name="35" href="#35">35</a>      org.apache.log4j.MDC.put(key, val);
+<a name="36" href="#36">36</a>    }
+<a name="37" href="#37">37</a>  
+<a name="38" href="#38">38</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> remove(String key) {
+<a name="39" href="#39">39</a>      org.apache.log4j.MDC.remove(key);
+<a name="40" href="#40">40</a>    }
+<a name="41" href="#41">41</a>  
+<a name="42" href="#42">42</a>    <strong class="jxr_keyword">public</strong> Map getCopyOfContextMap() {
+<a name="43" href="#43">43</a>      Map old = org.apache.log4j.MDC.getContext();
+<a name="44" href="#44">44</a>      <strong class="jxr_keyword">if</strong>(old != <strong class="jxr_keyword">null</strong>) {
+<a name="45" href="#45">45</a>        <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> HashMap(old);
+<a name="46" href="#46">46</a>      } <strong class="jxr_keyword">else</strong> {
+<a name="47" href="#47">47</a>        <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a name="48" href="#48">48</a>      }
+<a name="49" href="#49">49</a>    }
+<a name="50" href="#50">50</a>  
+<a name="51" href="#51">51</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setContextMap(Map contextMap) {
+<a name="52" href="#52">52</a>      Map old = org.apache.log4j.MDC.getContext();
+<a name="53" href="#53">53</a>      <strong class="jxr_keyword">if</strong>(old == <strong class="jxr_keyword">null</strong>) {
+<a name="54" href="#54">54</a>        Iterator entrySetIterator = contextMap.entrySet().iterator();
+<a name="55" href="#55">55</a>        <strong class="jxr_keyword">while</strong>(entrySetIterator.hasNext()) {
+<a name="56" href="#56">56</a>          Map.Entry mapEntry = (Map.Entry) entrySetIterator.next();
+<a name="57" href="#57">57</a>          org.apache.log4j.MDC.put((String) mapEntry.getKey(), mapEntry.getValue());
+<a name="58" href="#58">58</a>        }
+<a name="59" href="#59">59</a>      } <strong class="jxr_keyword">else</strong> {
+<a name="60" href="#60">60</a>        old.clear();
+<a name="61" href="#61">61</a>        old.putAll(contextMap);
+<a name="62" href="#62">62</a>      }
+<a name="63" href="#63">63</a>    }
+<a name="64" href="#64">64</a>  }
+</pre>
+<hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
+</html>
+

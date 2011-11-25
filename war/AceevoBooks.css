@@ -1,0 +1,226 @@
+/* Mini CSS Reset */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video
+	{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/** Add css rules here for your application. */
+body {
+	font: 300 12px/ 18px "HelveticaNeue-Light", "Helvetica Neue Light",
+		"Helvetica Neue", sans-serif !important;
+	margin: 0px !important;
+	color: #333333 !important;	
+}
+
+h2 {
+	font-size: 1.4em;
+	font-weight: bold;
+	padding-bottom: 10px;
+	float: left;
+}
+
+.h2WithButtons {
+	position: relative;
+	top: 5px;
+}
+	
+
+.h2Wrapper {
+	border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding-bottom: 8px;
+}
+
+.h2Wrapper button:last-of-type {
+	margin-right: 5px;	
+}
+
+#header {
+	padding: 10px 0 10px 10px;
+	/**background-color: #CC5500; **/
+	color: #FFF;
+	border-bottom: 1px solid #CCCCCC;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f1f1f1));
+  	background: -moz-linear-gradient(top,  #fff,  #f1f1f1);
+}
+
+#header h1 {
+	font-size: 2em;
+	margin: 0px;
+	text-align: left;
+	color: #333;
+	text-shadow: 0px 1px 0px #FFFFFF;
+}
+
+.breadCrumb {
+	padding: 5px 5px 5px 12px;
+}
+
+#searchWrapper {
+	padding: 5px;
+	text-align: center;
+}
+
+.btn {
+	float: right;
+	font-size: 11px;
+}
+
+.bt34 {
+	width: 62px; 
+}
+
+.bt77 {
+	width: 77px;
+}
+
+.customerWrapper {
+	width: 480px;
+	float: left;
+	margin-right: 30px;
+}
+
+.customerEditorWrapper {
+	margin-top: 15px;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.dateBoxPopup {
+	background-color: #FFFFFF;
+}
+
+.mainWrapper {
+	padding: 10px;
+	width: 960px;
+	margin: 20px auto;
+	background: white; /* fallback for older/unsupporting browsers */
+	background: -moz-linear-gradient(top, #eeeeee, white 3%);
+	background: -webkit-gradient(linear, 0 0, 0 3%, from(#eeeeee), to(white)
+		);
+	border-top: 1px solid white;
+	border: 1px solid #EEE;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+
+.summaryWrapper {
+	width: 440px;
+	float: left;
+}
+
+.customerDashboardWidget .name {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.customerViewWrapper {
+	width: 400px;
+	padding: 0 10px 10px 10px;
+	float: left;
+	margin-right: 30px;
+}
+
+.customerEditorWrapper .gwt-Label {
+	float: left;
+	clear: right;
+	font-size: 1.5em;
+}
+
+.customerEditorWrapper .formLabel {
+	float: left;
+	padding: 8px 15px 0px 5px;
+	font-weight: bold;
+	text-align: right;
+	width: 180px;
+	font-size: 1.5em;
+}
+
+.customerEditorWrapper .gwt-TextBox {
+	margin: 5px 0;
+	width: 180px;
+}
+
+.customerEditorWrapper .gwt-TextBox-readonly, .invoiceEditorWrapper .gwt-TextBox-readonly {
+	border: none;
+	/** background: none repeat scroll 0 0 #FFFFFF; */
+    border-width: 0px;
+	width: 180px;
+}
+
+/**.readOnly .gwt-TextBox, .readOnly .gwt-ListBox {
+	border: none;
+	background: none repeat scroll 0 0 #FFFFFF;
+    border-width: 0px;
+    width: 180px;
+}
+*/
+
+.readOnly .gwt-TextBox {
+	border: none;
+	/** background: none repeat scroll 0 0 #FFFFFF; */
+    border-width: 0px;
+    width: 180px;
+}
+
+table {
+	border-collapse: separate;
+}
+
+table td {
+    border-top: none !important;
+    vertical-align: middle !important;
+}
+
+.editorActionPanel {
+	width: 200px;
+	margin: 40px auto;
+}
+
+.editorActionPanel button:last-of-type {
+	margin-right: 5px;
+}
+
+.gwt-Anchor:hover {
+	cursor: pointer;
+}
+
+.errorWidget {
+	background-color: #EE5F5B;
+	border-color: #EE5F5B;
+}
+
+.errorWidget:focus {
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px red;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px red;
+	color: #FFFFFF;
+}
+
+.invoiceEditorWrapper {
+	margin-top: 20px;
+}
+
+.invoiceEditor {
+	width: 100%;
+}
+
+.invoiceEditor .gwt-TextBox, .invoiceEditor .gwt-ListBox {
+	margin-top: 5px;
+	width: 100%;
+}
+
+.invoiceEditor .formLabel {
+	padding-right: 10px;
+}
+
+.invoiceEditor th, .invoiceEditor td {
+	padding: 0px !important;
+}	

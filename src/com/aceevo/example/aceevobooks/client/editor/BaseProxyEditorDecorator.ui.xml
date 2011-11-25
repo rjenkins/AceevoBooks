@@ -1,0 +1,17 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:c="urn:import:com.google.gwt.user.cellview.client"
+	xmlns:my="urn:import:com.aceevo.example.aceevobooks.client.view"
+	xmlns:myEditor="urn:import:com.aceevo.example.aceevobooks.client.customer.view">
+
+	<g:HTMLPanel ui:field="baseProxyEditorActionPanel" visible="false"
+		styleName="editorActionPanel">
+		<g:Button ui:field="cancel" styleName="btn bt77">
+			Cancel
+		</g:Button>
+		<g:Button ui:field="save" styleName="btn bt77">
+			Save
+		</g:Button>
+		<div class="clearfix" />
+	</g:HTMLPanel>
+
+</ui:UiBinder>

@@ -1,0 +1,61 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:c="urn:import:com.google.gwt.user.cellview.client"
+	xmlns:e="urn:import:com.google.gwt.editor.ui.client" xmlns:my="urn:import:com.aceevo.example.aceevobooks.client.view"
+	xmlns:myEditor="urn:import:com.aceevo.example.aceevobooks.client.customer.view"
+	xmlns:invEditor="urn:import:com.aceevo.example.aceevobooks.client.invoice.view">
+
+	<ui:style>
+		.cellTable {
+			border-bottom: 1px solid #ccc;
+			text-align: left;
+			margin: 4px;
+		}
+		
+		.cellTable th {
+			text-shadow: none;
+		}
+	</ui:style>
+
+	<g:HTMLPanel>
+		<my:HeaderView ui:field="headerView"></my:HeaderView>
+		<div class="mainWrapper">
+			<div class="customerViewWrapper">
+				<div class="h2Wrapper">
+					<h2>Contact Information</h2>
+					<g:Button ui:field="deleteCustomer" styleName="btn bt34">
+						Delete
+					</g:Button>
+					<g:Button ui:field="editCustomer" styleName="btn bt34">
+						Edit
+					</g:Button>
+					<div class="clearfix" />
+				</div>
+				<myEditor:CustomerEditor ui:field="customerEditor"></myEditor:CustomerEditor>
+				<div class="clearfix" />
+			</div>
+			<div class="summaryWrapper">
+				<div class="h2Wrapper">
+					<h2>All Invoices</h2>
+					<g:Button ui:field="addInvoice" styleName="btn">
+						New Invoice
+					</g:Button>
+					<div class="clearfix" />
+				</div>
+				<div style="float: right">
+					<g:Anchor ui:field="allInvoicesFilter">all</g:Anchor>
+					<g:Anchor ui:field="paidInvoicesFilter">| paid </g:Anchor>
+					<g:Anchor ui:field="outstandingInvoicesFilter">| outstanding</g:Anchor>
+					<div class="clearfix"></div>
+				</div>
+				<c:CellTable addStyleNames='{style.cellTable}' pageSize='15'
+					ui:field='invoiceTable' />
+				<div class="clearfix" />
+
+				<invEditor:InvoiceEditor ui:field="invoiceEditor"></invEditor:InvoiceEditor>
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+	</g:HTMLPanel>
+</ui:UiBinder>
