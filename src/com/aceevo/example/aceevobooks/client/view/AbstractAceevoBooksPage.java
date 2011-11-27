@@ -5,7 +5,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Widget;
 
-public abstract class AbstractAceevoBooksPage extends Composite implements BreadCrumbView {
+public abstract class AbstractAceevoBooksPage extends Composite implements BreadCrumbView, AceevoBooksView {
 
 	@UiField
 	public HeaderView headerView;
