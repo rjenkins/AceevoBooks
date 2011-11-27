@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.aceevo.example.aceevobooks.client.AceevoBaseAbstractActivity;
 import com.aceevo.example.aceevobooks.client.dashboard.view.DashboardView;
+import com.aceevo.example.aceevobooks.client.model.BreadCrumb;
 import com.aceevo.example.aceevobooks.client.model.CustomerProxy;
+import com.aceevo.example.aceevobooks.client.place.BreadCrumbChangeEvent;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
@@ -63,6 +65,15 @@ public class DashboardActivity extends AceevoBaseAbstractActivity {
 						dashboardView.getPaidInvoiceTotal().setText(response.toString());
 					}
 				});
+		
+		String moduleUrl = getModuleUrl();
+
+		place.getBreadCrumbs().clear();
+		place.addBreadCrumb(new BreadCrumb("Aceevo Books", null));
+		place.addBreadCrumb(new BreadCrumb("Dashboard", moduleUrl + "#DashboardPlace"));
+
+		eventBus.fireEvent(new BreadCrumbChangeEvent(dashboardView));
+
 	}
 
 }

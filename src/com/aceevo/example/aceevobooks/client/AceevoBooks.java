@@ -36,9 +36,6 @@ public class AceevoBooks implements EntryPoint {
 				.getDashboardPlace());
 		historyHandler.handleCurrentHistory();
 
-		// DashboardPlace dashboardPlace = injector.getDashboardPlace();
-		// injector.getPlaceController().goTo(dashboardPlace);
-
 	}
 
 }

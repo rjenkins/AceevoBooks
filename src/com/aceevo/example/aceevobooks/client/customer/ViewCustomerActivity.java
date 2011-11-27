@@ -92,11 +92,7 @@ public class ViewCustomerActivity extends AceevoBaseAbstractActivity {
 	}
 	
 	private void updateBreadCrumb(CustomerProxy customerProxy, EventBus eventBus) {
-		String moduleUrl = Location.getHref();
-
-		if (moduleUrl.indexOf("#") != -1) {
-			moduleUrl = moduleUrl.substring(0, Location.getHref().indexOf("#"));
-		}
+		String moduleUrl = getModuleUrl();
 
 		place.addBreadCrumb(new BreadCrumb("Dashboard", moduleUrl + "#DashboardPlace"));
 		place.addBreadCrumb(new BreadCrumb("Customer", null));

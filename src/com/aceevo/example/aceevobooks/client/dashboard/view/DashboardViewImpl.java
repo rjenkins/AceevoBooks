@@ -17,6 +17,7 @@ import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -67,7 +68,6 @@ public class DashboardViewImpl extends Composite implements DashboardView {
 	public DashboardViewImpl() {
 		initWidget(dashboardViewUiBinder.createAndBindUi(this));
 		headerView.setBreadCrumb("Aceevo Books > <a href='#'> Dashboard</a>");
-
 	}
 
 	@Override
@@ -144,5 +144,10 @@ public class DashboardViewImpl extends Composite implements DashboardView {
 	@UiHandler("addCustomer")
 	public void onAddCustomerClick(ClickEvent e) {
 		eventBus.fireEvent(new CustomerAddEvent());
+	}
+
+	@Override
+	public void setBreadCrumb(HTML html) {
+		headerView.setBreadCrumb(html);
 	}
 }

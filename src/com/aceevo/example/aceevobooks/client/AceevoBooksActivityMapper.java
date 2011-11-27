@@ -34,19 +34,19 @@ import com.google.web.bindery.requestfactory.shared.Receiver;
 public class AceevoBooksActivityMapper implements ActivityMapper {
 
 	@Inject
-	PlaceController placeController;
+	private PlaceController placeController;
 
 	@Inject
-	EventBus eventBus;
+	private EventBus eventBus;
 
 	@Inject
-	DashboardView dashboardView;
+	private DashboardView dashboardView;
 
 	@Inject
-	CustomerView customerView;
+	private CustomerView customerView;
 
 	@Inject
-	HeaderView headerView;
+	private HeaderView headerView;
 
 	private Boolean init = false;
 

@@ -5,6 +5,10 @@ import com.google.gwt.place.shared.PlaceTokenizer;
 
 public class DashboardPlace extends AceevoBooksPlace {
 
+	public DashboardPlace() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public static class Tokenizer implements PlaceTokenizer<DashboardPlace> {
 
 		@Override

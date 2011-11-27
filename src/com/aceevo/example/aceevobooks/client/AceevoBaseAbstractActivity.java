@@ -7,6 +7,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
+import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 public abstract class AceevoBaseAbstractActivity extends AbstractActivity {
@@ -48,6 +49,16 @@ public abstract class AceevoBaseAbstractActivity extends AbstractActivity {
 	@Override
 	public String mayStop() {
 		return null;
+	}
+	
+	protected String getModuleUrl() {
+		String moduleUrl = Location.getHref();
+
+		if (moduleUrl.indexOf("#") != -1) {
+			moduleUrl = moduleUrl.substring(0, Location.getHref().indexOf("#"));
+		}
+		
+		return moduleUrl;
 	}
 
 }
