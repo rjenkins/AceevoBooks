@@ -13,7 +13,6 @@ import com.aceevo.example.aceevobooks.client.requests.CustomerRequest;
 import com.aceevo.example.aceevobooks.client.requests.InvoiceRequest;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
-import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.view.client.AsyncDataProvider;

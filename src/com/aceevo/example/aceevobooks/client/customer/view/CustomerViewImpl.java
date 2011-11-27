@@ -10,6 +10,7 @@ import com.aceevo.example.aceevobooks.client.model.CustomerProxy;
 import com.aceevo.example.aceevobooks.client.model.InvoiceProxy;
 import com.aceevo.example.aceevobooks.client.requests.AceevoBooksRequestFactory;
 import com.aceevo.example.aceevobooks.client.requests.InvoiceRequest;
+import com.aceevo.example.aceevobooks.client.view.AbstractAceevoBooksPage;
 import com.aceevo.example.aceevobooks.client.view.HeaderView;
 import com.aceevo.example.aceevobooks.shared.InvoiceState;
 import com.google.gwt.core.client.GWT;
@@ -34,10 +35,7 @@ import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.inject.Inject;
 import com.google.web.bindery.requestfactory.shared.RequestContext;
 
-public class CustomerViewImpl extends Composite implements CustomerView {
-
-	@UiField
-	HeaderView headerView;
+public class CustomerViewImpl extends AbstractAceevoBooksPage implements CustomerView {
 
 	@UiField
 	CustomerEditor customerEditor;
@@ -143,11 +141,6 @@ public class CustomerViewImpl extends Composite implements CustomerView {
 	@Override
 	public Widget asWidget() {
 		return this;
-	}
-
-	@Override
-	public void setBreadCrumb(HTML html) {
-		headerView.setBreadCrumb(html);
 	}
 
 	@Override

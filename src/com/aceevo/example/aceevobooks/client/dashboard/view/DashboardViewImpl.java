@@ -2,7 +2,7 @@ package com.aceevo.example.aceevobooks.client.dashboard.view;
 
 import com.aceevo.example.aceevobooks.client.customer.event.CustomerAddEvent;
 import com.aceevo.example.aceevobooks.client.model.CustomerProxy;
-import com.aceevo.example.aceevobooks.client.view.HeaderView;
+import com.aceevo.example.aceevobooks.client.view.AbstractAceevoBooksPage;
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -16,28 +16,23 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.HasData;
 import com.google.inject.Inject;
 import com.sun.corba.se.pept.transport.ContactInfo;
 
-public class DashboardViewImpl extends Composite implements DashboardView {
+public class DashboardViewImpl extends AbstractAceevoBooksPage implements DashboardView {
 
 	interface DashboardViewUiBinder extends UiBinder<HTMLPanel, DashboardViewImpl> {
 	}
 
 	private static DashboardViewUiBinder dashboardViewUiBinder = GWT
 			.create(DashboardViewUiBinder.class);
-
-	@UiField
-	HeaderView headerView;
 
 	@UiField
 	CellList<CustomerProxy> customerList;
@@ -67,13 +62,9 @@ public class DashboardViewImpl extends Composite implements DashboardView {
 
 	public DashboardViewImpl() {
 		initWidget(dashboardViewUiBinder.createAndBindUi(this));
-		headerView.setBreadCrumb("Aceevo Books > <a href='#'> Dashboard</a>");
+		setBreadCrumb(new HTML("Aceevo Books > <a href='#'> Dashboard</a>"));
 	}
 
-	@Override
-	public Widget asWidget() {
-		return this;
-	}
 
 	@Override
 	public HasData<CustomerProxy> getCustomers() {
@@ -146,8 +137,4 @@ public class DashboardViewImpl extends Composite implements DashboardView {
 		eventBus.fireEvent(new CustomerAddEvent());
 	}
 
-	@Override
-	public void setBreadCrumb(HTML html) {
-		headerView.setBreadCrumb(html);
-	}
 }
